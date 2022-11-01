@@ -1,19 +1,22 @@
 # GeetestCrack
 基于yolov5的极验空间推理模型训练
-## 接口加密分析思路
+## 测试接口
 加密参数w的值可以通过参考一些AST反混淆的教程分析js文件。</br>
-测试接口：`service-gkzuwk0z-1307225969.bj.apigw.tencentcs.com/release/test`</br>
+测试接口：`http://49.234.3.186:8888/index`</br>
 接口随时都可能会关掉，如果不通就是被我关掉了。</br>
-POST请求json格式，返回值即为w的值。
+### GET请求参数
+参数  |   值 |
+---- | ---- |
+gt	  | c9428d9361cd70d26e28d7cd780ec640 |
+challenge    | 9a5d3a1db9dadbaa867f6a34a5512740 |
+
+### 请求成功示例
 ```json
 {
-  "passtime": "666", #通过验证时间
-  "xy": "1234_5442", #点击坐标
-  "pic": "/nerualpic/space_l1_zh_2019.07.17/space/d839d79ae9d9b768a869c1a40448ecb3.jpg", #前置请求返回结果中的pic值
-  "gt": "c9428d9361cd70d26e28d7cd780ec640", #gt值
-  "challenge": "9a5d3a1db9dadbaa867f6a34a5512740", #challenge值
-  "c": "[12, 58, 98, 36, 43, 95, 62, 15, 12]", #前置请求返回结果中的c值
-  "s": "514c622c" #前置请求返回结果中的s值
+  "msg":[],
+  "result":"success",
+  "score":"1",
+  "validate":"ac00fdb3bc74b012c3b82cca057675fa" #使用challenge和validate一起提交验证即可
 }
 ```
 ## 验证码问题求解思路
